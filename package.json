@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon --env-file=.env app.js",
-    "vercel-build": "npx prisma migrate deploy"
+    "dev": "nodemon --env-file=.env app.js"
+    
   },
   "keywords": [],
   "author": "",
