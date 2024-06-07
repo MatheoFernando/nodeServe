@@ -51,7 +51,7 @@ export const newPickup = async (req, res) => {
     });
 
     // Envio de email com confirmação e prêmio
-    await sendMail(novoPickup.email, novoPickup.nome, novoPickup.endereco, novoPickup.date, novoPickup.produtos , novoPickup.hora);
+    await sendMail(novoPickup.email, novoPickup.nome, novoPickup.endereco, novoPickup.date, novoPickup.produtos , novoPickup.hora , novoPickup.cidade);
 
     // Resposta de sucesso
     return res.status(201).send({

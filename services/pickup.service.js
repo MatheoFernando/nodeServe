@@ -8,10 +8,7 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
+  }
 });
 
 transporter.verify(function (error, success) {
@@ -22,7 +19,7 @@ transporter.verify(function (error, success) {
   }
 });
 
-export async function sendMail(email, nome , endereco , produtos , hora , date) {
+export async function sendMail(email, nome , endereco , date, produtos , hora , cidade ) {
   const body = `
   <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -74,9 +71,10 @@ export async function sendMail(email, nome , endereco , produtos , hora , date) 
         
               <ul style="font-size:16px;line-height:38px;margin:20px 0;color:#333e;font-weight:400">
                <li> Nome: ${nome}</li>
-               <li> Endereço: ${endereco}</li>   
-               <li> Endereço: ${date} as ${hora}</li>   
-               <li> Endereço: ${produtos}</li>
+               <li> Endereço: ${endereco}   / cidade :  ${cidade}</li>   
+               <li> Data de entrega: ${date} as ${hora}</li>   
+               <li> produto: ${produtos}</li>
+            
           
               </ul>
             <p style="font-size:16px;line-height:28px;margin:20px 0;color:#000;font-weight:400">Nossa equipe de coleta estará no seu endereço na data e horário indicados. Se houver qualquer alteração ou dúvida, por favor, entre em contato conosco através do número +244 937 680 537 ou responda a este e-mail.</p>

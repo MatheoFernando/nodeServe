@@ -8,9 +8,7 @@ export const newDescarte = async (req, res) => {
   
   // Verificação de campos obrigatórios
   if (!nome || !email || !termo) {
-    return res.status(400).send({
-      msg: 'Todos os dados precisam ser preenchidos!',
-    });
+    return res.status(400).send(req.body);
   }
 
   // Validação de formato de email
